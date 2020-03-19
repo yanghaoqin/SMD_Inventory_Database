@@ -23,8 +23,8 @@ if(strcmpi(type,'i'))
     clear type file path
     
     disp('Verifying table format...')
-    if(length(entry.Properties.VariableNames) ~= 7)
-        disp('Missing/More categories than expected')
+    if(length(entry.Properties.VariableNames) < 7)
+        disp('Missing categories')
         return
     else
         found = find(strcmpi(entry.Properties.VariableNames,'Category'),1);
@@ -70,16 +70,6 @@ if(strcmpi(type,'i'))
             return
         end
     end
-        
-    for i = 1:7
-        if(strcmpi(entry.Properties.VariableNames{1:i},T.Properties.VariableNames{1:i}))
-            continue
-        else
-            disp(['Incorrect order of category: ',T.Properties.VariableNames{1:i}])
-            clear entry 
-            return
-        end
-    end
     
     disp('Verification complete')
     for i = 1:height(entry)
@@ -88,7 +78,16 @@ if(strcmpi(type,'i'))
         idx = strcmpi(T.PartNumber,partnum);
         part = T(idx,:);
         if(isempty(part))
-            T = [T;entry(i,:)];
+            newitem = {...
+                entry(i,:).Category,...
+                entry(i,:).Value,...
+                entry(i,:).PartNumber,...
+                entry(i,:).Manufacturer,...
+                entry(i,:).Package,...
+                entry(i,:).Qty,...
+                entry(i,:).Description};
+            T = [T;newitem];
+            clear newitem;
         else
             T.Qty(idx,1) = T.Qty(idx,1) + partqty;
         end
