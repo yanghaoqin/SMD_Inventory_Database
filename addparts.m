@@ -121,8 +121,10 @@ else
             idx = strcmpi(T.PartNumber,entry{1,3});
             part = T(idx,:);
             if(isempty(part))
+                disp('New part created')
                 T = [T;entry];
             else
+                disp('Part found in database')
                 T.Qty(idx,1) = T.Qty(idx,1) + entry{1,6};
             end
             
