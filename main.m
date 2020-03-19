@@ -8,6 +8,7 @@ while(exit_ == 0)
     option = menu('SMD Inventory',...
         'Initialize',...
         'Status',...
+        'Find parts',...
         'Add parts',...
         'Backup',...
         'Remove parts',...
@@ -26,30 +27,34 @@ while(exit_ == 0)
             exit_ = 0;
             continue
         case 3
-            addparts
+            findpart
             exit_ = 0;
             continue
         case 4
-            backup
+            addparts
             exit_ = 0;
             continue
         case 5
-            rmpart
+            backup
             exit_ = 0;
             continue
         case 6
-            manufacture
+            rmpart
             exit_ = 0;
             continue
         case 7
-            registerboard
+            manufacture
             exit_ = 0;
             continue
         case 8
-            clear
+            registerboard
             exit_ = 0;
             continue
         case 9
+            clear
+            exit_ = 0;
+            continue
+        case 10
             exit_ = 1;
     end
 end

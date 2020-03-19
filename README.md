@@ -11,6 +11,7 @@ Matlab 2018b is used to create the database managing scripts.
 - ___registerboard___: registers a PC board to make it manufacturable. An Altium-generated BOM is imported and the required parts for this board are searched in the inventory.
 - ___addpart___: either add parts manually by entering the required info or importing an excel spreadsheet
 - ___rmpart___: removes parts from the inventory
+- ___findpart___: search for a part in inventory
 
 ## Requirements
 - __BOM__: there must be 7 categories but they do not have to be in the same order as the current inventory.
