@@ -4,6 +4,7 @@ This is a database for managing the SMD component inventory data in an Excel spr
 Matlab 2018b is used to create the database managing scripts.
 
 ## Functions
+- __main__: control.
 - ___initialize___: imports the inventory into Matlab. This is the first step before everything else.
 - ___backup___: backs up the current inventory inside the Matlab workspace and saves it as an ".xlsx" file in the current folder
 - ___status___: performs a status check on the current inventory, identifying parts that are out and organizing the rows by ascending quantity
